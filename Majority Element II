@@ -1,0 +1,24 @@
+// this is brute force approach approximately taking time complexity O(n^2)
+import java.util.*;
+class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+        int n = nums.length;
+        int floor = n/3;
+        List<Integer> ans = new ArrayList<>();
+        for(int i =0;i<n;i++){
+            int count =1;
+            for(int j=i+1;j<n;j++){
+                if(nums[i]==nums[j]){
+                    count++;
+                }
+            }
+            if(count>floor){
+                    if(!ans.contains(nums[i])){
+                        ans.add(nums[i]);
+                    }
+                   }
+            }
+            return ans;
+        }
+       
+    }
