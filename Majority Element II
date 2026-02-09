@@ -32,6 +32,10 @@ int n = nums.length;
           mp.put(nums[i],mp.getOrDefault(nums[i],0)+1);
           if(mp.get(nums[i])==min){
             ans.add(nums[i]);
+          
           }
+          if(ans.size()==2){
+                break;
+            }
         }
         return ans;
