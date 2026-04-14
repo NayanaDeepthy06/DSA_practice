@@ -33,3 +33,37 @@ class Solution {
         }
     }
 } /// this is aprroach one takes O(n^2 ) as time complexity 
+this is binary search approach 
+    class Solution {
+    public int aggressiveCows(int[] nums, int k) {
+      int n = nums.length;
+      Arrays.sort(nums);
+      int low = 1;
+      int high = nums[n-1];
+      int ans; 
+      while(low<=high){
+        int mid = (low+high)/2;
+        if(Cowsplace(nums,mid,k)==true){
+            ans = mid;
+            low = mid+1;
+        }else{
+            high = mid-1;
+        }
+      }
+      return high;
+    }
+    private static boolean Cowsplace(int[] nums,int dist,int k){
+        int countCows = 1;
+        int last = nums[0];
+        for(int j=0;j<nums.length;j++){
+            if(nums[j]-last>=dist){
+                countCows++;
+                last = nums[j];
+            }
+        }
+        if (countCows>=k) return true;
+        else{
+            return false;
+        }
+    }
+}
